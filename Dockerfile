@@ -18,7 +18,7 @@ RUN apt-get update \
         libpq-dev \
         curl \
         gnupg \
-        && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 # 安装 Node.js (用于前端构建)
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \

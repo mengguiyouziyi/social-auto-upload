@@ -1,320 +1,151 @@
-# 社交媒体自动上传系统
-
-> 🚀 基于 AI 的智能社交媒体内容生成和自动发布平台
-
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
-![Vue](https://img.shields.io/badge/vue-3.4+-green.svg)
-![Docker](https://img.shields.io/badge/docker-supported-blue.svg)
-
-## 📋 项目简介
-
-这是一个基于 Flask + Vue3 构建的智能社交媒体自动上传系统，支持多平台内容发布、AI 内容生成、数据分析等功能。
-
-### ✨ 主要特性
-
-- 🤖 **AI 内容生成**: 集成多种 AI 模型，智能生成文案和视频脚本
-- 🎯 **多平台支持**: 支持抖音、小红书、B站、腾讯视频等平台
-- 📊 **数据分析**: 实时数据分析和性能优化建议
-- 🔄 **任务调度**: 智能任务调度和批量处理
-- 🛡️ **安全认证**: JWT 认证和权限管理
-- 📱 **响应式设计**: 完美适配移动端和桌面端
-- 🐳 **容器化部署**: Docker 支持，一键部署
-
-## 🏗️ 系统架构
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   前端 (Vue3)   │────│   后端 (Flask)  │────│   数据库        │
-│                 │    │                 │    │                 │
-│  - Element Plus │    │  - AI 服务      │    │  - PostgreSQL  │
-│  - Pinia        │    │  - 平台集成     │    │  - Redis 缓存   │
-│  - Vue Router   │    │  - 文件处理     │    │                 │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
-
-## 🚀 快速开始
-
-### 环境要求
-
-- Python 3.10+
-- Node.js 18+
-- FFmpeg (视频处理)
-- PostgreSQL (生产环境)
-
-### 1. 克隆项目
-
-```bash
-git clone https://github.com/mengguiyouziyi/social-auto-upload.git
-cd social-auto-upload
-```
-
-### 2. 配置环境
-
-```bash
-# 复制环境配置文件
-cp .env.example .env
-
-# 编辑配置文件
-vim .env
-```
-
-### 3. 安装依赖
-
-```bash
-# 安装 Python 依赖
-pip install -r requirements.txt
-
-# 安装前端依赖
-cd sau_frontend
-npm install
-```
-
-### 4. 初始化数据库
-
-```bash
-# 创建数据库表
-python scripts/init_db.py
-```
-
-### 5. 启动服务
-
-#### 开发环境
-
-```bash
-# 启动后端服务
-python run_backend.py
-
-# 启动前端开发服务器 (新终端)
-cd sau_frontend
-npm run dev
-```
-
-访问 http://localhost:5173 查看前端界面
-
-#### Docker 部署
-
-```bash
-# 构建并启动所有服务
-docker-compose up -d
-
-# 初始化数据库
-docker-compose --profile init up db-init
-```
-
-## 📖 使用指南
-
-### 默认账户
-
-- **管理员**: `admin / admin123`
-- **测试用户**: `test / test123`
-
-### 主要功能
-
-1. **AI 内容生成**
-   - 智能文案生成
-   - 视频脚本生成
-   - 内容优化建议
-
-2. **账户管理**
-   - 多平台账户绑定
-   - 账户状态监控
-   - 批量操作
-
-3. **内容发布**
-   - 视频上传
-   - 定时发布
-   - 多平台同步
-
-4. **数据分析**
-   - 发布效果分析
-   - 用户画像分析
-   - 性能优化建议
-
-## 🔧 配置说明
-
-### 环境变量
-
-主要配置项说明：
-
-| 变量名 | 说明 | 默认值 |
-|--------|------|--------|
-| `DEBUG` | 调试模式 | `True` |
-| `DATABASE_URL` | 数据库连接 | `sqlite:///db/database.db` |
-| `SECRET_KEY` | 应用密钥 | 必须设置 |
-| `OPENAI_API_KEY` | OpenAI API 密钥 | 必须设置 |
-| `JWT_SECRET_KEY` | JWT 密钥 | 必须设置 |
-
-### AI 服务配置
-
-支持多种 AI 服务提供商：
-
-- **OpenAI**: GPT-3.5, GPT-4
-- **百度文心一言**: ERNIE Bot
-- **阿里云通义千问**: Qwen
-- **智谱AI**: GLM
-
-### 平台配置
-
-各平台需要单独配置：
-
-- **抖音**: 需要 Cookie 和 User-Agent
-- **小红书**: 需要登录凭证
-- **B站**: 需要账号密码
-- **腾讯视频**: 需要授权
-
-## 🐳 Docker 部署
-
-### 开发环境
-
-```bash
-# 启动开发环境
-docker-compose --profile dev up -d
-```
-
-### 生产环境
-
-```bash
-# 启动生产环境
-docker-compose --profile prod up -d
-
-# 查看日志
-docker-compose logs -f
-```
-
-### 环境配置
-
-生产环境需要配置：
-
-- 数据库连接
-- Redis 缓存
-- SSL 证书
-- 域名解析
-- 监控告警
-
-## 📊 API 文档
-
-启动服务后访问：
-
-- **Swagger UI**: http://localhost:5409/api/docs
-- **ReDoc**: http://localhost:5409/api/redoc
-
-### 主要 API 端点
-
-| 端点 | 方法 | 说明 |
-|------|------|------|
-| `/api/auth/login` | POST | 用户登录 |
-| `/api/ai/generate` | POST | AI 内容生成 |
-| `/api/content/publish` | POST | 内容发布 |
-| `/api/accounts` | GET | 账户列表 |
-| `/api/analytics` | GET | 数据分析 |
-
-## 🛠️ 开发指南
-
-### 项目结构
-
-```
-social-auto-upload/
-├── sau_backend/          # 后端代码
-│   ├── api/             # API 路由
-│   ├── models/          # 数据模型
-│   ├── services/        # 业务逻辑
-│   ├── platforms/       # 平台集成
-│   └── utils/           # 工具函数
-├── sau_frontend/         # 前端代码
-│   ├── src/             # 源代码
-│   │   ├── components/  # 组件
-│   │   ├── views/       # 页面
-│   │   ├── stores/      # 状态管理
-│   │   └── utils/       # 工具函数
-│   └── public/          # 静态资源
-├── scripts/             # 脚本文件
-├── uploads/             # 上传文件
-├── logs/                # 日志文件
-└── docs/               # 文档
-```
-
-### 代码规范
-
-- **Python**: 遵循 PEP 8 规范
-- **JavaScript**: 使用 ESLint 和 Prettier
-- **Vue**: 使用 Vue 3 Composition API
-- **Git**: 使用 Conventional Commits
-
-### 测试
-
-```bash
-# 运行后端测试
-pytest tests/
-
-# 运行前端测试
-cd sau_frontend
-npm test
-
-# 运行端到端测试
-npm run test:e2e
-```
-
-## 🔒 安全配置
-
-### 基本安全
-
-- 使用 HTTPS
-- 配置 CORS
-- 设置强密码
-- 定期更新依赖
-
-### 生产环境
-
-- 使用环境变量
-- 配置防火墙
-- 启用日志监控
-- 定期备份数据
-
-## 📈 监控和维护
-
-### 日志查看
-
-```bash
-# 查看应用日志
-tail -f logs/app.log
-
-# Docker 日志
-docker-compose logs -f backend
-```
-
-### 性能监控
-
-- **内存使用**: 监控 Redis 和数据库内存
-- **CPU 使用**: 监控后端服务 CPU 占用
-- **响应时间**: 监控 API 响应时间
-- **错误率**: 监控 5xx 错误率
-
-## 🤝 贡献指南
-
-1. Fork 本仓库
-2. 创建特性分支: `git checkout -b feature/new-feature`
-3. 提交更改: `git commit -m 'Add new feature'`
-4. 推送分支: `git push origin feature/new-feature`
-5. 创建 Pull Request
-
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
-
-## 🙏 致谢
-
-- [Flask](https://flask.palletsprojects.com/) - Python Web 框架
-- [Vue.js](https://vuejs.org/) - 前端框架
-- [Element Plus](https://element-plus.org/) - UI 组件库
-- [OpenAI](https://openai.com/) - AI 服务提供商
-
-## 📞 联系我们
-
-- **Issues**: [GitHub Issues](https://github.com/mengguiyouziyi/social-auto-upload/issues)
-- **Email**: your-email@example.com
-- **文档**: [Wiki](https://github.com/mengguiyouziyi/social-auto-upload/wiki)
+# social-auto-upload
+
+`social-auto-upload` 是一个强大的自动化工具，旨在帮助内容创作者和运营者高效地将视频内容一键发布到多个国内外主流社交媒体平台。
+项目实现了对 `抖音`、`Bilibili`、`小红书`、`快手`、`视频号`、`百家号` 以及 `TikTok` 等平台的视频上传、定时发布等功能。
+结合各平台 `uploader` 模块，您可以轻松配置和扩展支持的平台，并通过示例脚本快速上手。
+
+<img src="sau_backend/media/show/tkupload.gif" alt="tiktok show" width="800"/>
+
+## 目录
+
+- [💡 功能特性](#💡功能特性)
+- [🚀 支持的平台](#🚀支持的平台)
+- [💾 安装指南](#💾安装指南)
+- [🏁 快速开始](#🏁快速开始)
+- [🐇 项目背景](#🐇项目背景)
+- [📃 详细文档](#📃详细文档)
+- [🐾 交流与支持](#🐾交流与支持)
+- [🤝 贡献指南](#🤝贡献指南)
+- [📜 许可证](#📜许可证)
+- [⭐ Star History](#⭐Star-History)
+
+## 💡功能特性
+
+### 已支持平台
+
+-   **国内平台**:
+    -   [x] 抖音
+    -   [x] 视频号
+    -   [x] Bilibili
+    -   [x] 小红书
+    -   [x] 快手
+    -   [x] 百家号
+-   **国外平台**:
+    -   [x] TikTok
+
+### 核心功能
+
+-   [x] 定时上传 (Cron Job / Scheduled Upload)
+-   [ ] Cookie 管理 (部分实现，持续优化中)
+-   [ ] 国外平台 Proxy 设置 (部分实现)
+
+### 计划支持与开发中
+
+-   **平台扩展**:
+    -   [ ] QQ视频
+    -   [ ] YouTube
+-   **功能增强**:
+    -   [ ] 更易用的版本 (GUI / CLI 交互优化)
+    -   [ ] API 封装
+    -   [ ] Docker 部署
+    -   [ ] 自动化上传 (更智能的调度策略)
+    -   [ ] 多线程/异步上传优化
+    -   [ ] Slack/消息推送通知
 
 ---
 
-⭐ 如果这个项目对你有帮助，请给它一个 star！
+## 🚀支持的平台
+
+本项目通过各平台对应的 `uploader` 模块实现视频上传功能。您可以在 <mcfolder name="examples" path="d:\Code\Awesome-Tools\1.Social_Tools\social-auto-upload__dreammis\examples"></mcfolder> 目录下找到各个平台的使用示例脚本。
+
+每个示例脚本展示了如何配置和调用相应的 uploader。
+
+## 💾安装指南
+
+1.  **克隆项目**:
+    ```bash
+    git clone https://github.com/dreammis/social-auto-upload.git
+    cd social-auto-upload
+    ```
+
+2.  **安装依赖**:
+    建议在虚拟环境中安装依赖。
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **安装 Playwright 浏览器驱动**:
+    ```bash
+    playwright install chromium firefox
+    ```
+    根据您的需求，至少需要安装 `chromium`。`firefox` 主要用于 TikTok 上传（旧版）。
+
+> 非程序员用户可以参考：[新手级教程](https://juejin.cn/post/7372114027840208911)
+
+## 🏁快速开始
+
+1.  **准备 Cookie**: 
+    大多数平台需要登录后的 Cookie 信息才能进行操作。请参照 examples 目录下各 `get_xxx_cookie.py` 脚本（例如 get_douyin_cookie.py, get_ks_cookie.py）的说明，运行脚本以生成并保存 Cookie 文件（通常在 `cookies/[PLATFORM]_uploader/account.json`）。
+
+2.  **准备视频文件**: 
+    将需要上传的视频文件（通常为 `.mp4` 格式）放置在 videos 目录下。
+    部分平台支持视频封面，可以将封面图片（例如 `.png` 格式，与视频同名）也放在此目录。
+    如果需要上传标题及标签，请在视频文件旁边创建一个同名的 `.txt` 文件，内容为标题和标签，以换行分隔。
+
+3.  **修改并运行示例脚本**:
+    打开 examples 目录中您想使用的平台的上传脚本（例如 upload_video_to_douyin.py）。
+    -   根据脚本内的注释和说明，确认 Cookie 文件路径、视频文件路径等配置是否正确。
+    -   您可以修改脚本以适应您的具体需求，例如批量上传、自定义标题、标签等。
+
+4.  **执行上传**:
+    运行修改后的示例脚本，例如：
+    ```bash
+    python examples/upload_video_to_douyin.py
+    ```
+
+## 🐇项目背景
+
+该项目最初是我个人用于自动化管理社交媒体视频发布的工具。我的主要发布策略是提前一天设置定时发布，因此项目中很多定时发布相关的逻辑是基于“第二天”的时间进行计算的。
+
+如果您需要立即发布或其他定制化的发布策略，欢迎研究源码或在社区提问。
+
+## 📃详细文档
+
+更详细的文档和说明，请查看：[social-auto-upload 官方文档](https://sap-doc.nasdaddy.com/)
+
+## 🐾交流与支持
+
+[☕ Donate as u like](https://www.buymeacoffee.com/hysn2001m) - 如果您觉得这个项目对您有帮助，可以考虑赞助。
+
+如果您也是独立开发者、技术爱好者，对 #技术变现 #AI创业 #跨境电商 #自动化工具 #视频创作 等话题感兴趣，欢迎加入社群交流：
+
+| 微信公众号                                 | 交流群 (通过公众号获取)                      |
+| :----------------------------------------: | :------------------------------------------: |
+| ![NasDaddy公众号](sau_backend/media/mp.jpg)             | ![赞赏码/入群引导](sau_backend/media/QR.png)             |
+| 关注公众号，后台回复 `上传` 获取加群方式 | 如果您觉得项目有用，可以考虑打赏支持一下 | 
+
+## 🤝贡献指南
+
+欢迎各种形式的贡献，包括但不限于：
+
+-   提交 Bug报告 和 Feature请求。
+-   改进代码、文档。
+-   分享使用经验和教程。
+
+如果您希望贡献代码，请遵循以下步骤：
+
+1.  Fork 本仓库。
+2.  创建一个新的分支 (`git checkout -b feature/YourFeature` 或 `bugfix/YourBugfix`)。
+3.  提交您的更改 (`git commit -m 'Add some feature'`)。
+4.  Push到您的分支 (`git push origin feature/YourFeature`)。
+5.  创建一个 Pull Request。
+
+## 📜许可证
+
+本项目暂时采用 [MIT License](LICENSE) 开源许可证。
+
+## ⭐Star-History
+
+> 如果这个项目对您有帮助，请给一个 ⭐ Star 以表示支持！
+
+[![Star History Chart](https://api.star-history.com/svg?repos=dreammis/social-auto-upload&type=Date)](https://star-history.com/#dreammis/social-auto-upload&Date)
