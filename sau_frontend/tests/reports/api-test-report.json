@@ -1,0 +1,45 @@
+{
+  "summary": {
+    "startTime": "2025-09-16T03:13:52.683Z",
+    "endTime": "2025-09-16T03:13:59.428Z",
+    "totalDuration": 6745,
+    "totalTests": 0,
+    "passed": 0,
+    "failed": 0,
+    "successRate": 0
+  },
+  "results": [
+    {
+      "name": "基础API测试",
+      "status": "failed",
+      "duration": 1870,
+      "error": "Command failed: npx jest integration/simple-api-test.js --verbose --config jest.config.js\nError: Can't find a root directory while resolving a config file path.\nProvided path to resolve: jest.config.js\ncwd: /Users/sunyouyou/Desktop/projects/bzhi/social-auto-upload/sau_frontend/tests\n    at resolveConfigPath (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:2448:11)\n    at readInitialOptions (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1138:55)\n    at readConfig (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:918:13)\n    at readConfigs (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1168:32)\n    at runCLI (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/@jest/core/build/index.js:1397:43)\n    at Object.run (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-cli/build/index.js:656:34)\n",
+      "output": "Error: Can't find a root directory while resolving a config file path.\nProvided path to resolve: jest.config.js\ncwd: /Users/sunyouyou/Desktop/projects/bzhi/social-auto-upload/sau_frontend/tests\n    at resolveConfigPath (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:2448:11)\n    at readInitialOptions (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1138:55)\n    at readConfig (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:918:13)\n    at readConfigs (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1168:32)\n    at runCLI (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/@jest/core/build/index.js:1397:43)\n    at Object.run (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-cli/build/index.js:656:34)\n"
+    },
+    {
+      "name": "认证API测试",
+      "status": "failed",
+      "duration": 1520,
+      "error": "Command failed: npx jest integration/auth-api.test.js --verbose --config jest.config.js\nError: Can't find a root directory while resolving a config file path.\nProvided path to resolve: jest.config.js\ncwd: /Users/sunyouyou/Desktop/projects/bzhi/social-auto-upload/sau_frontend/tests\n    at resolveConfigPath (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:2448:11)\n    at readInitialOptions (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1138:55)\n    at readConfig (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:918:13)\n    at readConfigs (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1168:32)\n    at runCLI (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/@jest/core/build/index.js:1397:43)\n    at Object.run (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-cli/build/index.js:656:34)\n",
+      "output": "Error: Can't find a root directory while resolving a config file path.\nProvided path to resolve: jest.config.js\ncwd: /Users/sunyouyou/Desktop/projects/bzhi/social-auto-upload/sau_frontend/tests\n    at resolveConfigPath (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:2448:11)\n    at readInitialOptions (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1138:55)\n    at readConfig (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:918:13)\n    at readConfigs (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1168:32)\n    at runCLI (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/@jest/core/build/index.js:1397:43)\n    at Object.run (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-cli/build/index.js:656:34)\n"
+    },
+    {
+      "name": "内容发布API测试",
+      "status": "failed",
+      "duration": 1602,
+      "error": "Command failed: npx jest integration/content-publishing-test.js --verbose --config jest.config.js\nError: Can't find a root directory while resolving a config file path.\nProvided path to resolve: jest.config.js\ncwd: /Users/sunyouyou/Desktop/projects/bzhi/social-auto-upload/sau_frontend/tests\n    at resolveConfigPath (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:2448:11)\n    at readInitialOptions (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1138:55)\n    at readConfig (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:918:13)\n    at readConfigs (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1168:32)\n    at runCLI (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/@jest/core/build/index.js:1397:43)\n    at Object.run (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-cli/build/index.js:656:34)\n",
+      "output": "Error: Can't find a root directory while resolving a config file path.\nProvided path to resolve: jest.config.js\ncwd: /Users/sunyouyou/Desktop/projects/bzhi/social-auto-upload/sau_frontend/tests\n    at resolveConfigPath (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:2448:11)\n    at readInitialOptions (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1138:55)\n    at readConfig (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:918:13)\n    at readConfigs (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1168:32)\n    at runCLI (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/@jest/core/build/index.js:1397:43)\n    at Object.run (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-cli/build/index.js:656:34)\n"
+    },
+    {
+      "name": "AI功能API测试",
+      "status": "failed",
+      "duration": 1752,
+      "error": "Command failed: npx jest integration/sau-ai-functions.test.js --verbose --config jest.config.js\nError: Can't find a root directory while resolving a config file path.\nProvided path to resolve: jest.config.js\ncwd: /Users/sunyouyou/Desktop/projects/bzhi/social-auto-upload/sau_frontend/tests\n    at resolveConfigPath (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:2448:11)\n    at readInitialOptions (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1138:55)\n    at readConfig (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:918:13)\n    at readConfigs (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1168:32)\n    at runCLI (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/@jest/core/build/index.js:1397:43)\n    at Object.run (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-cli/build/index.js:656:34)\n",
+      "output": "Error: Can't find a root directory while resolving a config file path.\nProvided path to resolve: jest.config.js\ncwd: /Users/sunyouyou/Desktop/projects/bzhi/social-auto-upload/sau_frontend/tests\n    at resolveConfigPath (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:2448:11)\n    at readInitialOptions (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1138:55)\n    at readConfig (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:918:13)\n    at readConfigs (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-config/build/index.js:1168:32)\n    at runCLI (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/@jest/core/build/index.js:1397:43)\n    at Object.run (/Users/sunyouyou/.npm/_npx/b8d86e6551a4f492/node_modules/jest-cli/build/index.js:656:34)\n"
+    }
+  ],
+  "recommendations": [
+    "测试成功率较低，建议检查API实现和测试用例",
+    "有 4 个测试失败，建议查看详细日志"
+  ]
+}

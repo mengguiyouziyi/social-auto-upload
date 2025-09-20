@@ -1,0 +1,46 @@
+{
+  "name": "sau-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Edan.Lee",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:api": "cd tests/api && npm run test:api",
+    "test:api:watch": "cd tests/api && npm run test:api:watch",
+    "test:api:coverage": "cd tests/api && npm run test:api:coverage",
+    "test:api:integration": "cd tests/api && npm run test:api:integration",
+    "test:api:e2e": "cd tests/api && npm run test:api:e2e",
+    "test:api:performance": "npx playwright test tests/api/e2e/api-performance.spec.js",
+    "test:api:validate": "cd tests/api && node -e \"const TestRunner = require('./utils/test-runner'); const runner = new TestRunner(); runner.validateEnvironment().catch(console.error);\"",
+    "test:api:report": "cd tests/api && node -e \"const TestRunner = require('./utils/test-runner'); const runner = new TestRunner(); runner.runAllTests().then(results => runner.generateReport(results)).catch(console.error);\"",
+    "test:api:cleanup": "cd tests/api && node -e \"const TestRunner = require('./utils/test-runner'); const runner = new TestRunner(); runner.cleanup().catch(console.error);\"",
+    "test:all": "npm run test && npm run test:api",
+    "test:full": "npm run test:api:report"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "axios": "^1.9.0",
+    "echarts": "^6.0.0",
+    "element-plus": "^2.11.2",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@tauri-apps/cli": "^2.8.4",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "sass": "^1.92.1",
+    "vite": "^4.4.9",
+    "vite-plugin-vue-devtools": "^7.7.6"
+  }
+}
