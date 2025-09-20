@@ -1,0 +1,61 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+
+    environment: production
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Deploy to production server
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.PRODUCTION_HOST }}
+        username: ${{ secrets.PRODUCTION_USER }}
+        key: ${{ secrets.PRODUCTION_SSH_KEY }}
+        script: |
+          cd /opt/social-auto-upload
+          git pull origin main
+          docker-compose down
+          docker-compose build
+          docker-compose up -d
+          docker system prune -f
+
+    - name: Run database migrations
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.PRODUCTION_HOST }}
+        username: ${{ secrets.PRODUCTION_USER }}
+        key: ${{ secrets.PRODUCTION_SSH_KEY }}
+        script: |
+          cd /opt/social-auto-upload
+          docker-compose exec backend python scripts/init_db.py
+
+    - name: Health check
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.PRODUCTION_HOST }}
+        username: ${{ secrets.PRODUCTION_USER }}
+        key: ${{ secrets.PRODUCTION_SSH_KEY }}
+        script: |
+          # Wait for services to be ready
+          sleep 30
+
+          # Check backend health
+          curl -f http://localhost:5409/health || exit 1
+
+          # Check frontend
+          curl -f http://localhost:80 || exit 1
+
+    - name: Notify deployment
+      run: |
+        echo "🚀 Deployment completed successfully!"
+        echo "📊 Check the application at: ${{ secrets.PRODUCTION_URL }}"
